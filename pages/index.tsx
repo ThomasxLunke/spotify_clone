@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
+// eslint-disable-next-line prettier/prettier
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -65,5 +66,8 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
+
+
+export default Home;
