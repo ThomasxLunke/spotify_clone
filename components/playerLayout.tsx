@@ -4,7 +4,7 @@ const PlayerLayout = ({children}) => {
     return (
         <Box width="100vw" height="100vh">
            <Box position="absolute">
-                LOL
+                LOLLOL
            </Box>
         </Box>
     )
