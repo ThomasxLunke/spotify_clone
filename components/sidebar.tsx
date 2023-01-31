@@ -1,12 +1,10 @@
 import NextImage from 'next/image'
 import NextLink from 'next/link'
-import MenuItem from './menuItem'
+
 import {
   Box,
   List,
   ListItem,
-  ListIcon,
-  Center,
   Divider,
   LinkBox,
   LinkOverlay,
@@ -19,6 +17,7 @@ import {
   MdPlaylistAdd,
   MdFavorite,
 } from 'react-icons/md'
+import MenuItem from './menuItem'
 
 const navMenu = [
   {
@@ -53,7 +52,7 @@ const musicMenu = [
 
 const playLists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`)
 
-function Sidebar(props) {
+const Sidebar = () => {
   return (
     <Box
       width="100%"
