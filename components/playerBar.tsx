@@ -21,7 +21,7 @@ const PlayerBar = () => {
         </Box>
       </Flex>
     </Box>
-    //loll
+    //lolld
   )
 }
 
