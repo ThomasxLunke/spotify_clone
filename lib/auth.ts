@@ -1,6 +1,5 @@
 // we verify here if a user is authenticated before serving pages
 
-
 import jwt from 'jsonwebtoken'
 import { NextApiRequest, NextApiResponse } from 'next'
 import prisma from './prisma'
@@ -35,6 +34,10 @@ export const validateRoute = (handler) => {
 
     res.status(401)
     res.json({ error: 'Not Authorized' })
-
   }
+}
+
+export const validateToken = (token) => {
+  const user = jwt.verify(token, 'hello')
+  return user
 }
