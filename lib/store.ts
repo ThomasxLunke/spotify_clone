@@ -1,6 +1,6 @@
 import {createStore, action} from "easy-peasy"
 
-// lol
+
 export const store = createStore({
     activeSongs:[],
     activeSong: null,
