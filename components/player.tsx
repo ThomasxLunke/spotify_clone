@@ -45,21 +45,20 @@ const Player = ({ songs, activeSong }) => {
     let timerId
 
     if (playing && !isSeeking) {
-        const f = () => {
-            setSeek(soundRef.current.seek())
-            timerId = requestAnimationFrame(f)
-        }
-
+      const f = () => {
+        setSeek(soundRef.current.seek())
         timerId = requestAnimationFrame(f)
-        return () => cancelAnimationFrame(timerId)
+      }
+
+      timerId = requestAnimationFrame(f)
+      return () => cancelAnimationFrame(timerId)
     }
     cancelAnimationFrame(timerId)
-
-  },[playing, isSeeking])
+  }, [playing, isSeeking])
 
   useEffect(() => {
     setActiveSong(songs[index])
-  },[index, setActiveSong, songs])
+  }, [index, setActiveSong, songs])
 
   useEffect(() => {
     repeatRef.current = repeat
@@ -98,12 +97,12 @@ const Player = ({ songs, activeSong }) => {
 
   const onEnd = () => {
     if (repeatRef.current) {
-        // UI
-        setSeek(0)
-        // update the song ReactHowler
-        soundRef.current.seek(0)
+      // UI
+      setSeek(0)
+      // update the song ReactHowler
+      soundRef.current.seek(0)
     } else {
-        nextSong()
+      nextSong()
     }
   }
 
@@ -124,7 +123,13 @@ const Player = ({ songs, activeSong }) => {
   return (
     <Box>
       <Box>
-        <ReactHowler ref={soundRef} playing={playing} src={activeSong?.url} onLoad={onLoad} onEnd={onEnd} />
+        <ReactHowler
+          ref={soundRef}
+          playing={playing}
+          src={activeSong?.url}
+          onLoad={onLoad}
+          onEnd={onEnd}
+        />
       </Box>
 
       <Center color="gray.600">
@@ -198,10 +203,10 @@ const Player = ({ songs, activeSong }) => {
               step={0.1}
               min={0}
               id="player-range"
-              max={duration ? duration.toFixed(2) : 0}
+              max={duration ? (duration.toFixed(2) as unknown as number) : 0}
               onChange={onSeek}
               value={[seek]}
-              onChangeStart={() =>  setIsSeeking(true)}
+              onChangeStart={() => setIsSeeking(true)}
               onChangeEnd={() => setIsSeeking(false)}
             >
               {/* 
