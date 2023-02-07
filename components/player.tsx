@@ -24,7 +24,7 @@ import {
   MdOutlineRepeat,
 } from 'react-icons/md'
 
-import { useStoreActions } from 'easy-peasy'
+import { useStoreActions, useStoreState } from 'easy-peasy'
 import { formatTime } from '../lib/formatters'
 
 const Player = ({ songs, activeSong }) => {
@@ -40,7 +40,10 @@ const Player = ({ songs, activeSong }) => {
   const soundRef = useRef(null)
   const repeatRef = useRef(repeat)
   const setActiveSong = useStoreActions((state: any) => state.changeActiveSong)
-
+  
+  const volumeLevel = useStoreState((state:any) => state.volumeLevel )
+  
+  
   useEffect(() => {
     let timerId
 
@@ -129,6 +132,7 @@ const Player = ({ songs, activeSong }) => {
           src={activeSong?.url}
           onLoad={onLoad}
           onEnd={onEnd}
+          volume={volumeLevel}
         />
       </Box>
 
