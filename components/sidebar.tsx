@@ -52,8 +52,7 @@ const musicMenu = [
 ]
 
 const Sidebar = () => {
-
-  const {playlists} = usePlaylist()
+  const { playlists } = usePlaylist()
 
   return (
     <Box
@@ -80,25 +79,21 @@ const Sidebar = () => {
 
         <Box height="66%" overflow="auto" paddingY="20px">
           <List spacing={2}>
-            {playlists.map(
-              (playlist) => (
-                <ListItem paddingX="20px" key={playlist.id}>
-                  <LinkBox>
-                    <NextLink
-                      href={{
-                        pathname:'/playlist/[id]',
-                        query: {id: playlist.id}
-                      }}
-                      passHref /* === pass "href" to the child component (here the child of NextLink) */
-                    >
-                      <LinkOverlay>
-                        {playlist.name}
-                      </LinkOverlay>
-                    </NextLink>
-                  </LinkBox>
-                </ListItem>
-              )
-            )}
+            {playlists.map((playlist) => (
+              <ListItem paddingX="20px" key={playlist.id}>
+                <LinkBox>
+                  <NextLink
+                    href={{
+                      pathname: '/playlist/[id]',
+                      query: { id: playlist.id },
+                    }}
+                    passHref /* === pass "href" to the child component (here the child of NextLink) */
+                  >
+                    <LinkOverlay>{playlist.name}</LinkOverlay>
+                  </NextLink>
+                </LinkBox>
+              </ListItem>
+            ))}
           </List>
         </Box>
       </Box>

@@ -35,8 +35,6 @@ const Home = ({ artists }) => {
                   <Text fontSize="large">{artist.name}</Text>
                   <Text fontSize="x-small">Artist</Text>
                 </Box>
-
-
               </Box>
             </Box>
           ))}
