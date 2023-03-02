@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { FC, useState } from 'react'
 import NextImage from 'next/image'
 import { auth } from '../lib/mutations'
-
+//lol
 const AuthForm: FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
