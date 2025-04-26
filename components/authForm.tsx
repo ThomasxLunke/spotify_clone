@@ -30,6 +30,7 @@ const AuthForm: FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => {
       </Flex>
       <Flex justify="center" align="center" height="calc(100vh - 100px)">
         <Box padding="50px" bg="gray.900" borderRadius="6px">
+          <p>Invité  = Email: user@test.com ; password : password</p>
           <form onSubmit={handleSubmit}>
             <Input
               placeholder="email"
